@@ -40,7 +40,7 @@ To do this, first I prepare a 9x6x1 (object points) grid full of points and load
 
 Using the `cv2.calibrateCamera` method with the object points, the found image points, and the image shape, I'm able to get the camera matrix, distortion coefficients and pickle/save them for later use.
 
-![Undistorted image](output_images/undistorted_board.png)
+![Undistorted board](output_images/undistorted_board.png)
 
 You can view all the undistorted checkerboards here: `output_images/undistorted*.jpg`
 
