@@ -54,15 +54,15 @@ In `Step 2 - Distortion correction` of my `project4.ipynb` notebook, I define th
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-In `Step 3 -- Color/gradient threshold` of my `project4.ipynb` notebook, I define the `apply_gradient` function. This function is comprised of three other functions - `mag_thresh`, `dir_thresh` and `color_thresh` - that are combination of color and gradient thresholds to generate a binary image.
+In `Step 4 -- Color/gradient threshold` of my `project4.ipynb` notebook, I define the `apply_thresholds` function. This function is comprised of three other functions - `yellow_mask`, `white_mask` and `abs_sobel_thresh` - that are combination of color masking and gradient thresholds to generate a binary image.
 
-In parallel a apply the gradient threshold (gradient magnitude & gradient direction) while also applying a color threshold in HLS color space. I then combine the two parallel (three in total) thresholds to create the binary image.
+In parallel, the function applies a yellow color mask, a white color mask, and the Sobel gradient operator to a warped image in HLS color space. I then combine the two colors masks, after which I then combine it with the Sobel output to create the binary image.
 
-![Masked image](output_images/combined_image.png)
+![Masked image](output_images/thresholds.png)
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-In `Step 4 -- Perspective transform` of my `project4.ipynb` notebook, I define the `shift_perspective` function.  I chose to hardcode the source and destination points using smart assumptions and then using `cv2.getPerspectiveTransform` get the transformation matrix `M` and apply that to the warped binary image.
+In `Step 3 -- Perspective transform` of my `project4.ipynb` notebook, I define the `shift_perspective` function.  I chose to hardcode the source and destination points using smart assumptions and then using `cv2.getPerspectiveTransform` get the transformation matrix `M` and apply that to the warped binary image.
 
 ![Masked image](output_images/warped_image.png)
 
@@ -102,4 +102,4 @@ I learned a lot from this project.
 
 2) This project was about image processing and not neural networks. So I got good exposure to image manipulation tasks, especially applying gradients.
 
-3) My pipeline's generated mask gets a little distorted in the video on the bridge where the left lane-line disappears. More work could be done to learn how to handle those situations better. Likewise, I could experiment with how to teach my pipeline to handle lanes that may have an inadvertent 'line' in the middle of them (like a road under construction).
+3) My first project submission wasn't completely accepted. I needed better lane detection for the bridge and shadows. I was able to achieve that using colors masks and Sobel gradient.
